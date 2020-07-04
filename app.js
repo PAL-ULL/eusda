@@ -10,8 +10,8 @@ var beautify = require('js-beautify').js;
 const home = require('os').homedir();
 const homeConfig = Path.join(home, ".config");
 const actual = Path.join(process.cwd(), "config");
-const actualEntullo = Path.join(actual, "entullo");
-const homeEntullo = Path.join(homeConfig, "entullo");
+const actualEusda = Path.join(actual, "eusda");
+const homeEusda = Path.join(homeConfig, "eusda");
 
 
 
@@ -58,12 +58,12 @@ function start() {
 
         if (second.directory === 'I want to use this directory.') {
             process.env["NODE_CONFIG_DIR"] = actual;
-            const actualEntullo = Path.join(actual, "entullo");
+            const actualEusda = Path.join(actual, "eusda");
 
 
         } else if (second.directory === 'I want to use my home directory.') {
             process.env["NODE_CONFIG_DIR"] = homeConfig;
-            const homeEntullo = Path.join(homeConfig, "entullo");
+            const homeEusda = Path.join(homeConfig, "eusda");
 
         }
 
@@ -87,7 +87,7 @@ function start() {
                     name: 'dbName',
                     type: 'input',
                     message: 'Database name: ',
-                    default: 'entullo',
+                    default: 'eusda',
                     validate: validateString
                 }, {
                     name: 'dbCollection',
@@ -148,7 +148,7 @@ function start() {
                 {
                     host: "127.0.0.1",
                     port: 27017,
-                    name: "entullo",
+                    name: "eusda",
                     collectionUSDA: "food"
                 },
                 usda: {
@@ -185,13 +185,13 @@ function start() {
                 fs.mkdirSync(process.env["NODE_CONFIG_DIR"], 0777);
 
             }
-            const newPath = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo");
+            const newPath = Path.join(process.env["NODE_CONFIG_DIR"] + "/eusda");
 
             if (!fs.existsSync(newPath)) {
                 fs.mkdirSync(newPath, 0777);
             }
 
-            const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo/default.json");
+            const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/eusda/default.json");
 
             fs.writeFileSync(file, beautify(JSON.stringify(cont), { indent_size: 2, space_in_empty_paren: true }));
 
@@ -200,7 +200,7 @@ function start() {
     };
 
     (async () => {
-        msn('entullo');
+        msn('EUSDA');
         const first = await question1();
         const second = await question2();
         const result = queryParams(first, second)
@@ -301,11 +301,11 @@ const createConfig = (data) => {
         fs.mkdirSync(process.env["NODE_CONFIG_DIR"], 0777);
 
     }
-    const newPath = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo");
+    const newPath = Path.join(process.env["NODE_CONFIG_DIR"] + "/eusda");
     if (!fs.existsSync(newPath)) {
         fs.mkdirSync(newPath, 0777);
     }
-    const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo/default.json");
+    const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/eusda/default.json");
     fs.writeFileSync(file, beautify(JSON.stringify(myConfig), { indent_size: 2, space_in_empty_paren: true }));
 
 };
@@ -317,11 +317,11 @@ const createConfig = (data) => {
 
 function init() {
 
-    if ((fs.existsSync(actual)) && (fs.existsSync(actualEntullo))) {
-        process.env["NODE_CONFIG_DIR"] = actualEntullo;
+    if ((fs.existsSync(actual)) && (fs.existsSync(actualEusda))) {
+        process.env["NODE_CONFIG_DIR"] = actualEusda;
 
-    } else if ((fs.existsSync(homeConfig)) && (fs.existsSync(homeEntullo))) {
-        process.env["NODE_CONFIG_DIR"] = homeEntullo;
+    } else if ((fs.existsSync(homeConfig)) && (fs.existsSync(homeEusda))) {
+        process.env["NODE_CONFIG_DIR"] = homeEusda;
     }
     const config = require("config");
     const load = require("./lib/load-data");
@@ -333,12 +333,12 @@ function init() {
         .usage("command [option]");
 
     program
-        .option("-v --version", "Print entullo version")
+        .option("-v --version", "Print eusda version")
         .description("Show the version.")
 
     if (program.version !== undefined) {
         const package = require("./package.json");
-        console.log(`entullo ${package.version}`);
+        console.log(`eusda ${package.version}`);
     }
 
 
@@ -447,7 +447,7 @@ function init() {
 }
 
 
-if ((!fs.existsSync(Path.join(home, ".config" + "/entullo/default.json"))) && (!fs.existsSync(Path.join(process.cwd(), "config" + "/entullo/default.json")))) {
+if ((!fs.existsSync(Path.join(home, ".config" + "/eusda/default.json"))) && (!fs.existsSync(Path.join(process.cwd(), "config" + "/eusda/default.json")))) {
 
     if (process.argv[2] === "--help"){
         program.help();

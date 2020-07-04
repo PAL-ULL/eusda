@@ -1,6 +1,6 @@
-[![npm version](https://badge.fury.io/js/entullo.svg)](https://badge.fury.io/js/entullo)
+[![npm version](https://badge.fury.io/js/eusda.svg)](https://badge.fury.io/js/eusda)
 
-# entullo
+# eusda
 This is a simple development of a package that allows to have a database in MongoDB with nutrition data obtained of USDA (United States Department of Agriculture). You can change the url and download other type of data  for your database.
 
 ## Installation
@@ -8,7 +8,7 @@ This is a simple development of a package that allows to have a database in Mong
 You need node.js and npm.
 
 ~~~
-npm install -d entullo
+npm install -d eusda
 ~~~
 
 ## Usage from command line
@@ -17,7 +17,7 @@ You can use `--help` option to see what you can do:
 
 ~~~
 Options:
-  -v --version        Print entullo version
+  -v --version        Print eusda version
   -h, --help          output usage information
 
 Commands:
@@ -35,7 +35,7 @@ Commands:
     ~~~
     Usage: app download [options]
 
-    Download data from entullo
+    Download data from eusda
 
     Options:
     -u, --usda       USDA data version
@@ -48,7 +48,7 @@ Commands:
 - Options: You can see the command options using `--help`:
 
     ~~~
-    Usage: app entullo [options]
+    Usage: app eusda [options]
 
     Config the URLs
 
@@ -63,12 +63,12 @@ Commands:
 
 
 
-## Entullo Tutorial
+## Eusda Tutorial
 
 Install it with
 
 ```
-npm i -g entullo
+npm i -g eusda
 ```
 
 The first time it will ask you some questions to 
@@ -77,7 +77,7 @@ configure the database.
 Here is an example of how to configure it locally with a default file:
 
 ```
-[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ entullo
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ eusda
 The directory 'files' was created.
 The directory 'zip' was created.
 The directory 'unzip' was created.
@@ -91,8 +91,8 @@ The directory 'json' was created.
 
 ? Do you want to use a default configuration file?  Yes.
 ? Where will your config file be?  I want to use this directory.
-New directory: /Volumes/2020/TFG/tfg-kathrina-arrocha-umpierrez/deploy/config/entullo
-New file: /Volumes/2020/TFG/tfg-kathrina-arrocha-umpierrez/deploy/config/entullo/default.json
+New directory: /Volumes/2020/TFG/tfg-kathrina-arrocha-umpierrez/deploy/config/eusda
+New file: /Volumes/2020/TFG/tfg-kathrina-arrocha-umpierrez/deploy/config/eusda/default.json
 ```
 
 this will create the following tree:
@@ -101,7 +101,7 @@ this will create the following tree:
 [.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ tree
 .
 ├── config
-|    └── entullo
+|    └── eusda
 │         └── default.json
 └── files
     ├── json
@@ -111,11 +111,11 @@ this will create the following tree:
 6 directories, 1 file
 ```
 
-The command `entullo config` shows the contents of the configuration file:
+The command `eusda config` shows the contents of the configuration file:
 
 ```
-[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ entullo config
-entullo 2.0.6
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ eusda config
+eusda 2.0.6
 
 The configuration used is:
 
@@ -123,7 +123,7 @@ Config {
   db:
    { host: '127.0.0.1',
      port: 27017,
-     name: 'entullo',
+     name: 'eusda',
      collectionUSDA: 'food' },
   usda:
    { urls:
@@ -152,8 +152,8 @@ Config {
 With the command `download` you can download the default version:
 
 ```
-[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ entullo download
-entullo 2.0.6
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ eusda download
+eusda 2.0.6
 
  Downloading from USDA, using version sr28
         You can choose another version in this URL:
@@ -172,7 +172,7 @@ The new tree structure is:
 [.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ tree -s
 .
 ├── [       4096]  config
-│   └── [       4096]  entullo
+│   └── [       4096]  eusda
 │       └── [       1559]  default.json
 └── [       4096]  files
     ├── [       4096]  json
@@ -233,8 +233,8 @@ mongo-database/
 Now we can upload the json file inside the mongo database with
 
 ```
-.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ entullo insert
-entullo 2.0.6
+.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ eusda insert
+eusda 2.0.6
 Inserting data in the collection: food
 Data was successfully inserted
 ```
@@ -249,10 +249,10 @@ $ mongo
 > show dbs
 admin    0.000GB
 config   0.000GB
-entullo  0.003GB
+eusda  0.003GB
 local    0.000GB
-> use entullo
-switched to db entullo
+> use eusda
+switched to db eusda
 > show collections
 food
 ```
