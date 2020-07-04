@@ -1,6 +1,6 @@
 {
   "name": "eusda",
-  "version": "2.0.9",
+  "version": "3.0",
   "description": "USDA command line downloader",
   "main": "app.js",
   "scripts": {
@@ -40,7 +40,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PAL-ULL/jilorio.git"
+    "url": "git+https://github.com/PAL-ULL/eusda.git"
   },
   "license": "ISC",
   "dependencies": {
@@ -74,7 +74,7 @@
     "morgan": "^1.9.1"
   },
   "bugs": {
-    "url": "https://github.com/PAL-ULL/jilorio/issues"
+    "url": "https://github.com/PAL-ULL/eusda/issues"
   },
-  "homepage": "https://github.com/PAL-ULL/jilorio#readme"
+  "homepage": "https://github.com/PAL-ULL/eusda#readme"
 }
