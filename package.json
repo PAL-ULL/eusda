@@ -1,6 +1,6 @@
 {
   "name": "eusda",
-  "version": "3.0",
+  "version": "3.0.0",
   "description": "USDA command line downloader",
   "main": "app.js",
   "scripts": {
